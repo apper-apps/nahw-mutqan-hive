@@ -1,0 +1,83 @@
+@import 'react-toastify/dist/ReactToastify.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'Tajawal', 'IBM Plex Arabic', sans-serif;
+    direction: rtl;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', 'IBM Plex Arabic', sans-serif;
+  }
+  
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .arabic-text {
+    font-family: 'IBM Plex Arabic', 'Tajawal', sans-serif;
+    line-height: 1.8;
+  }
+  
+  .tashkeel {
+    color: #F18F01;
+    font-weight: 600;
+  }
+}
+
+/* Toast Customization */
+.Toastify__toast-container {
+  z-index: 9999;
+  font-family: 'Tajawal', 'IBM Plex Arabic', sans-serif;
+  direction: rtl;
+}
+
+.Toastify__toast {
+  border-radius: 12px;
+  min-height: 64px;
+  font-size: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #4CAF50 0%, #5FA052 100%);
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #F44336 0%, #e53935 100%);
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #1B4965 0%, #2196F3 100%);
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Geometric Pattern */
+.geometric-pattern {
+  background-image: 
+    linear-gradient(45deg, transparent 24%, rgba(241, 143, 1, 0.03) 25%, rgba(241, 143, 1, 0.03) 26%, transparent 27%, transparent 74%, rgba(241, 143, 1, 0.03) 75%, rgba(241, 143, 1, 0.03) 76%, transparent 77%),
+    linear-gradient(-45deg, transparent 24%, rgba(27, 73, 101, 0.03) 25%, rgba(27, 73, 101, 0.03) 26%, transparent 27%, transparent 74%, rgba(27, 73, 101, 0.03) 75%, rgba(27, 73, 101, 0.03) 76%, transparent 77%);
+  background-size: 30px 30px;
+}
+
+/* Dark mode adjustments */
+.dark .geometric-pattern {
+  background-image: 
+    linear-gradient(45deg, transparent 24%, rgba(241, 143, 1, 0.05) 25%, rgba(241, 143, 1, 0.05) 26%, transparent 27%, transparent 74%, rgba(241, 143, 1, 0.05) 75%, rgba(241, 143, 1, 0.05) 76%, transparent 77%),
+    linear-gradient(-45deg, transparent 24%, rgba(95, 160, 82, 0.05) 25%, rgba(95, 160, 82, 0.05) 26%, transparent 27%, transparent 74%, rgba(95, 160, 82, 0.05) 75%, rgba(95, 160, 82, 0.05) 76%, transparent 77%);
+}

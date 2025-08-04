@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "المبتدئون - أساسيات النحو",
+    "description": "تعرف على أركان الجملة الأساسية والمرفوعات",
+    "isUnlocked": true,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 2,
+    "title": "المفعولات والمنصوبات",
+    "description": "تعلم المفعول به والمفعول المطلق والمفعول فيه",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 3,
+    "title": "المجرورات والجر",
+    "description": "حروف الجر ومعانيها والأسماء المجرورة",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 4,
+    "title": "الإضافة والنعت",
+    "description": "التراكيب الإضافية والصفات والموصوفات",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 5,
+    "title": "الفعل والزمن",
+    "description": "أنواع الأفعال وعلامات الإعراب",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 6,
+    "title": "الجملة الاسمية المتقدم",
+    "description": "المبتدأ والخبر وأحوالهما المختلفة",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 7,
+    "title": "الجملة الفعلية المتقدم",
+    "description": "الفاعل ونائب الفاعل والتراكيب الفعلية",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 8,
+    "title": "الأساليب النحوية",
+    "description": "الاستفهام والنداء والتعجب والشرط",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 9,
+    "title": "التوابع في النحو",
+    "description": "النعت والتوكيد والعطف والبدل",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  },
+  {
+    "id": 10,
+    "title": "النحو المتقدم والإعراب",
+    "description": "الإعراب التفصيلي والقضايا النحوية المعقدة",
+    "isUnlocked": false,
+    "isCompleted": false,
+    "highScore": 0
+  }
+]
