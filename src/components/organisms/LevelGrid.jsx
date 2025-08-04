@@ -9,8 +9,8 @@ const LevelGrid = ({ levels, onLevelSelect }) => {
 
   const handleLevelClick = (level) => {
     if (level.isUnlocked) {
-      onLevelSelect(level);
-      navigate(`/quiz/${level.id}`);
+onLevelSelect(level);
+      navigate(`/quiz/${level.Id}`);
     }
   };
 
@@ -32,8 +32,8 @@ const LevelGrid = ({ levels, onLevelSelect }) => {
         const status = getLevelStatus(level);
         
         return (
-          <motion.div
-            key={level.id}
+<motion.div
+            key={level.Id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}

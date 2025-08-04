@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../App";
 import ApperIcon from "@/components/ApperIcon";
 import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
@@ -7,7 +9,7 @@ import ThemeToggle from "@/components/molecules/ThemeToggle";
 
 const HomePage = () => {
   const navigate = useNavigate();
-
+  const { logout } = useContext(AuthContext);
   const features = [
     {
       icon: "Layers",
@@ -33,9 +35,18 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 geometric-pattern">
-      {/* Header */}
-      <div className="absolute top-4 left-4 z-10">
+{/* Header */}
+      <div className="absolute top-4 left-4 z-10 flex gap-2">
         <ThemeToggle />
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={logout}
+          className="p-2"
+        >
+          <ApperIcon name="LogOut" size={20} />
+          تسجيل الخروج
+        </Button>
       </div>
 
       <div className="container mx-auto px-4 py-12">

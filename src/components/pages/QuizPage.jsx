@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
+import { AuthContext } from "../../App";
 import LevelService from "@/services/api/LevelService";
 import QuestionService from "@/services/api/QuestionService";
 import ApperIcon from "@/components/ApperIcon";
@@ -17,6 +18,7 @@ import Error from "@/components/ui/Error";
 const QuizPage = () => {
   const { levelId } = useParams();
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
   
   // Data state
   const [level, setLevel] = useState(null);
@@ -45,7 +47,7 @@ const QuizPage = () => {
       setLoading(true);
       setError("");
       
-      const [levelData, questionsData] = await Promise.all([
+const [levelData, questionsData] = await Promise.all([
         LevelService.getById(parseInt(levelId)),
         QuestionService.getByLevelId(parseInt(levelId))
       ]);
@@ -80,8 +82,8 @@ const QuizPage = () => {
     setSelectedAnswer(answerIndex);
     
     // Update answers array
-    const newAnswer = {
-      questionId: currentQuestion.id,
+const newAnswer = {
+      questionId: currentQuestion.Id,
       selectedAnswer: answerIndex,
       isCorrect,
       timeSpent: 0 // Could track actual time
@@ -128,11 +130,11 @@ const QuizPage = () => {
         highScore: Math.max(level.highScore || 0, finalScore)
       };
       
-      await LevelService.update(level.id, updatedLevel);
+await LevelService.update(level.Id, updatedLevel);
       
       // Unlock next level if completed
-      if (finalScore >= 7) {
-        const nextLevelId = level.id + 1;
+if (finalScore >= 7) {
+        const nextLevelId = level.Id + 1;
         try {
           const nextLevel = await LevelService.getById(nextLevelId);
           if (nextLevel && !nextLevel.isUnlocked) {
@@ -166,8 +168,8 @@ const QuizPage = () => {
     setFeedbackData({});
   };
 
-  const handleNextLevel = () => {
-    const nextLevelId = level.id + 1;
+const handleNextLevel = () => {
+    const nextLevelId = level.Id + 1;
     navigate(`/quiz/${nextLevelId}`);
   };
 
@@ -211,9 +213,20 @@ const QuizPage = () => {
                   {level.description}
                 </p>
               </div>
-            </div>
+</div>
 
-            <ThemeToggle />
+            <div className="flex gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={logout}
+                className="p-2"
+              >
+                <ApperIcon name="LogOut" size={20} />
+                تسجيل الخروج
+              </Button>
+              <ThemeToggle />
+            </div>
           </div>
           
           {!isQuizComplete && (
@@ -261,7 +274,7 @@ const QuizPage = () => {
                 answers={answers}
                 questions={questions}
                 onRetry={handleRetry}
-                onNextLevel={score >= 7 && level.id < 10 ? handleNextLevel : null}
+onNextLevel={score >= 7 && level.Id < 10 ? handleNextLevel : null}
                 onBackToLevels={handleBackToLevels}
               />
             </motion.div>

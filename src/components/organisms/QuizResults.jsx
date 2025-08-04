@@ -262,12 +262,12 @@ const QuizResults = ({
           </h3>
           
           <div className="space-y-4">
-            {questions.map((question, index) => {
-              const userAnswer = answers.find(a => a.questionId === question.id);
+{questions.map((question, index) => {
+              const userAnswer = answers.find(a => a.questionId === question.Id);
               const isCorrect = userAnswer?.isCorrect;
               
-              return (
-                <div key={question.id} className="border-b border-gray-200 dark:border-gray-700 pb-4 last:border-b-0">
+return (
+                <div key={question.Id} className="border-b border-gray-200 dark:border-gray-700 pb-4 last:border-b-0">
                   <div className="flex items-start gap-3">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                       isCorrect 
@@ -282,14 +282,14 @@ const QuizResults = ({
                         {index + 1}. <span dangerouslySetInnerHTML={{ __html: question.text }} />
                       </p>
                       
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                         <p className="text-success-600 dark:text-success-400 arabic-text">
-                          الإجابة الصحيحة: {question.options[question.correctAnswer]}
+                          الإجابة الصحيحة: {(typeof question.options === 'string' ? question.options.split(',') : question.options || [])[question.correctAnswer]}
                         </p>
                         
-                        {userAnswer && userAnswer.selectedAnswer !== question.correctAnswer && (
+{userAnswer && userAnswer.selectedAnswer !== question.correctAnswer && (
                           <p className="text-error-600 dark:text-error-400 arabic-text">
-                            إجابتك: {question.options[userAnswer.selectedAnswer]}
+                            إجابتك: {(typeof question.options === 'string' ? question.options.split(',') : question.options || [])[userAnswer.selectedAnswer]}
                           </p>
                         )}
                       </div>

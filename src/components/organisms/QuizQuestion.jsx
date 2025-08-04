@@ -14,9 +14,9 @@ const QuizQuestion = ({
 }) => {
   const [localSelectedAnswer, setLocalSelectedAnswer] = useState(null);
 
-  useEffect(() => {
+useEffect(() => {
     setLocalSelectedAnswer(null);
-  }, [question.id]);
+  }, [question.Id]);
 
   const handleAnswerSelect = (answerIndex) => {
     if (isAnswered) return;
@@ -62,16 +62,16 @@ const QuizQuestion = ({
               </span>
             </div>
             
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white arabic-text leading-relaxed">
+<h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white arabic-text leading-relaxed">
               <span dangerouslySetInnerHTML={{ __html: question.text }} />
             </h2>
           </div>
         </div>
       </Card>
 
-      {/* Answer Options */}
+{/* Answer Options */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {question.options.map((option, index) => (
+        {(typeof question.options === 'string' ? question.options.split(',') : question.options || []).map((option, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -20 }}

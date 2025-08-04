@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../App";
 import LevelService from "@/services/api/LevelService";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
@@ -13,6 +14,7 @@ import Empty from "@/components/ui/Empty";
 
 const LevelsPage = () => {
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
   const [levels, setLevels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -25,7 +27,7 @@ const LevelsPage = () => {
     try {
       setLoading(true);
       setError("");
-      const data = await LevelService.getAll();
+const data = await LevelService.getAll();
       setLevels(data);
     } catch (err) {
       setError("فشل في تحميل المستويات");
@@ -35,9 +37,9 @@ const LevelsPage = () => {
     }
   };
 
-  const handleLevelSelect = (level) => {
+const handleLevelSelect = (level) => {
     if (level.isUnlocked) {
-      navigate(`/quiz/${level.id}`);
+      navigate(`/quiz/${level.Id}`);
     } else {
       toast.info("يجب إكمال المستوى السابق أولاً");
     }
@@ -81,9 +83,20 @@ const LevelsPage = () => {
                   ابدأ رحلتك في تعلم قواعد النحو
                 </p>
               </div>
-            </div>
+</div>
 
-            <ThemeToggle />
+            <div className="flex gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={logout}
+                className="p-2"
+              >
+                <ApperIcon name="LogOut" size={20} />
+                تسجيل الخروج
+              </Button>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>
