@@ -213,5 +213,3 @@ class LevelService {
 }
 
 export default LevelService;
-
-export default LevelService;
